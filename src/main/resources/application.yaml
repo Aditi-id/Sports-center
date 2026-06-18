@@ -1,0 +1,30 @@
+
+server:
+  port: ${PORT:8081}
+
+spring:
+  datasource:
+    url: ${DB_URL:jdbc:mysql://localhost:3306/sports-center}
+    username: ${DB_USER:root}
+    password: ${DB_PASSWORD:root}
+  application:
+    name: SportsCenter
+  jpa:
+    hibernate:
+      ddl-auto: update
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+        format_sql: false
+
+  data:
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
+      password: ${REDIS_PASSWORD:}
+
+stripe:
+  secret:
+    key: ${STRIPE_SECRET_KEY:sk_test_PLACEHOLDER}
